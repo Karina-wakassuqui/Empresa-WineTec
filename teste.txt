@@ -1,1 +1,2 @@
 teste primeiros passos comgit/github.
+Editei esse texto.
