@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variavel</title>
+</head>
+<body style="background-image: url(https://www.vinhosdompedrito.com.br/loja/wp-content/uploads/2016/10/x02.jpg);background-repeat: no-repeat;background-size: 100%;">>
+    <h1><span style="color:ghostwhite;">Bem vindo à variavel da</span> <span style="color: #da0681;">WineTec</span></h1>
+    <h3><span style="color:ghostwhite;">Preço do seu estoque: <input id="ganhos"></span></h3> <br>
+    <h3><span style="color:ghostwhite;">Quantidade de garrafas sem a temperatura controlada:</span> <input type="number" id="perdas"></h3> <br>
+   <h3><span style="color:ghostwhite;">Tamanho do armazenamento: <input type="number" id="armazenamento"> Metros²</span></h3>  <br>
+ <button onclick="calculo()">Calcular</button> <br>
+ <span style="color: #921549"></span>
+    <div id="div_vinho"></div>
+    
+</body>
+</html>
+<script>
+function calculo(){
+    var arduino = Number(armazenamento.value) / 10;
+    var preco = Number(40) * arduino;
+    var porcentagem  = parseInt(Number(perdas.value) / Number(ganhos.value) * 100);
+    var ganhos2 = Number(20) * arduino;
+ div_vinho.innerHTML = `<h3 style="color: ghostwhite">Potencialmente você perde por  mês: <b>${porcentagem}%.</b> <br> 
+ E nosso preço de instalação é igual à: <b style="color: #da0681">${preco}</b> sem mensalidade, e a partir do segundo mês é 
+ <b style="color: #da0681">${ganhos2}.</b></h3>`;
+}
+</script>
