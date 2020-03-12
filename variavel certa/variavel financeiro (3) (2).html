@@ -11,24 +11,23 @@
         <h2 style="color: ghostwhite"><span  style="cursor: help;">Duvidas? Calcule aqui.</span></h2> <br>
     <h3><span style="color:rgb(253, 255, 248);">Quanto custa seu estoque?<input id="ganhos"></span></h3> <br>
     <!--<h3><span style="color:ghostwhite;">Quantas garrafas tem  no seu estoque?</span> <input type="number" id="perdas"></h3>--> <br>
-   <h3><span style="color:ghostwhite;">Tamanho do seu armazem ou adega?<input type="number" id="armazenamento"> Metros²</span></h3>  <br>
- <button onclick="calculo()">Calcular</button> <br>
+   <h3><span style="color:ghostwhite;">Tamanho do seu armazém ou adega?<input type="number" id="armazenamento"> Metros²</span></h3>  <br>
+ <button onclick="calculo()"; style="background: white">Calcular</button> <br>
  <span style="color: #921549"></span>
     <div id="div_vinho"></div>
     
+    <b style="color: slateblue">
 </body>
 </html>
 <script>
 function calculo(){
-    var arduino = Number(armazenamento.value) / 10; // retoma o numero de sensores necessarios, com raio de 10 Metros.
+    var arduino = Number(armazenamento.value) / 5; // retoma o numero de sensores necessarios, com raio de 10 Metros.
     var perdas = Number(ganhos.value) / 4; //porcentagem de perda 25%. Essa variável divide o numero que custa o estoque por 4. 
-    var preco = Number(40) * arduino; // retoma numero de sensores. Essa variável retomo ao valor gasto em cada sensor de arduino. 
-    var porcentagem  = parseInt(Number(perdas.value) / Number(ganhos.value) * 100); // retoma a porcentagem de perda. Essa variável divide o número de perdas pelo numero de ganhos e multiplica por 100 para exibir o número em portagem 
-    var ganhos2 = Number(20) * arduino; // retoma a mensalidade. Essa várivel multiplica o valor da mão de obra pelo valor de quantos arduinos o cliente irá utilizar, para definir o valor da mensalidade. 
-    var gasto = ganhos2 * 6; // valor no fechamento fiscal/valor do nosso serviço no semestre. O valor do fechamento fiscal que acontece semestralmente foi multiplicado pelo valor do nosso serviço semestral, incluindo a instalação 
- div_vinho.innerHTML = `<h3 style="color: ghostwhite">Potencialmente você perde por mês <b>R$ ${perdas} do seu estoque.</b> <br> 
- E seu investimento inicial para adiquirir nossa solução (instalação e manutenção) <br> será de  <b> R$ ${preco},00</b>  sem custo de mensalidade no primeiro mês,<br>
-  e no primeiro semestre irá custar um total de <b>R$ ${gasto},00</b>.</h3>`; // As chaves são para chamar as variáveis e exibir o seu valor. 
+    var preco = Number(100) * arduino ; // retoma numero de sensores. Essa variável retomo ao valor gasto em cada sensor de arduino. 
+    var ganhos2 = Number(50) * arduino; // retoma a mensalidade. Essa várivel multiplica o valor da mão de obra pelo valor de quantos arduinos o cliente irá utilizar, para definir o valor da mensalidade. 
+    var gasto = ganhos2 * 1; // valor no fechamento fiscal/valor do nosso serviço no semestre. O valor do fechamento fiscal que acontece semestralmente foi multiplicado pelo valor do nosso serviço semestral, incluindo a instalação 
+ div_vinho.innerHTML = `<h3 style="color: ghostwhite">Potencialmente você perde por mês <b><i style="color: slateblue">R$ ${perdas.toFixed(2)}</i> do seu estoque.</b> <br> 
+ E seu investimento inicial para adquirir nossa solução (instalação e manutenção) <br> será de  <b> <i style="color: slateblue">R$ ${preco.toFixed(2)}</i></b> e a partir do segundo mês um valor de <b><i style="color: slateblue">R$ ${gasto.toFixed(2)}</i></b> mensais.</h3>`; // As chaves são para chamar as variáveis e exibir o seu valor. 
  
 }
 </script>
