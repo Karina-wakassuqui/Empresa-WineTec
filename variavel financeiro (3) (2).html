@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Solução da sua vida</title>
+</head>
+<body style="background-image: url(fundo.png) ;background-repeat: no-repeat;background-size: 100%;">>
+    <h1><span style="color:ghostwhite;">Você ja pensou que pode estar perdendo dinheiro com sua adega?</h1>
+        <h2 style="color: ghostwhite"><span  style="cursor: help;">Duvidas? Calcule aqui.</span></h2> <br>
+    <h3><span style="color:rgb(253, 255, 248);">Quanto custa seu estoque?<input id="ganhos"></span></h3> <br>
+    <!--<h3><span style="color:ghostwhite;">Quantas garrafas tem  no seu estoque?</span> <input type="number" id="perdas"></h3>--> <br>
+   <h3><span style="color:ghostwhite;">Tamanho do seu armazém ou adega?<input type="number" id="armazenamento"> Metros²</span></h3>  <br>
+ <button onclick="calculo()"; style="background: white">Calcular</button> <br>
+ <span style="color: #921549"></span>
+    <div id="div_vinho"></div>
+    
+    <b style="color: slateblue">
+</body>
+</html>
+<script>
+function calculo(){
+    var arduino = Number(armazenamento.value) / 5; // retoma o numero de sensores necessarios, com raio de 10 Metros.
+    var perdas = Number(ganhos.value) / 4; //porcentagem de perda 25%. Essa variável divide o numero que custa o estoque por 4. 
+    var preco = Number(100) * arduino ; // retoma numero de sensores. Essa variável retomo ao valor gasto em cada sensor de arduino. 
+    var gasto = Number(50) * arduino; // retoma a mensalidade. Essa várivel multiplica o valor da mão de obra pelo valor de quantos arduinos o cliente irá utilizar, para definir o valor da mensalidade.   
+ div_vinho.innerHTML = `<h3 style="color: ghostwhite">Potencialmente você perde por mês <b><i style="color: slateblue">R$ ${perdas.toFixed(2)}</i> do seu estoque.</b> <br> 
+ E seu investimento inicial para adquirir nossa solução (instalação e manutenção) <br> será de  <b> <i style="color: slateblue">R$ ${preco.toFixed(2)}</i></b> e a partir do segundo mês um valor de <b><i style="color: slateblue">R$ ${gasto.toFixed(2)}</i></b> mensais.</h3>`; // As chaves são para chamar as variáveis e exibir o seu valor. 
+ 
+}
+</script>
