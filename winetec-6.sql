@@ -42,18 +42,18 @@ insert into Estabelecimento values
 (0010,0004, 'Armazém', 'Bento Gonçalves', 'Via Trento, 2355','Bento Gonçalves', 'RS','Camila', '(54)2105-3122'),
 (0011,0004, 'Loja', 'BH', 'Rua Vitório Marçola, 203 - sala 10', 'Belo Horizonte', 'MG', 'Ronaldo', '(31)3643-6505');
 select * from Estabelecimento;
-create table Prateleira(
-ID_Prateleira int primary key,
+create table Setor(
+ID_Setor int primary key,
 ID_Estab int,
 Nome_Setor varchar (30),
-ID_Sensor int unique,
+Cod_Sensor int unique,
 Temperatura_Minima int,
 Temperatura_Maxima int,
 Umidade_Minima int,
 Umidade_Maxima int,
 Frequencia_Evento int
 );
-insert into Prateleira values
+insert into Setor values
 (0001,0001, 'Tintos', 0001, 16, 18, 65, 75, 10),
 (0002,0001, 'Brancos', 0002, 9, 12, 60, 80, 10),
 (0003,0002, 'Tintos', 0003, 18, 20, 65, 75, 15),
@@ -73,10 +73,10 @@ insert into Prateleira values
 (0017,0010, 'Tintos Jovem', 0017, 14, 16, 65, 75,10),
 (0018,0011, 'Brancos', 0018, 9, 10, 65, 75, 5),
 (0019,0011, 'Espumantes', 0019, 6, 8, 65, 75, 5);
-select * from prateleira;
+select * from setor;
 create table Evento(
 ID_Evento int primary key,
-ID_Sensor int,
+ID_Setor int,
 Dia_Evento char (8),
 Hora_Evento char(5),
 Temperatura_Registrada int,
